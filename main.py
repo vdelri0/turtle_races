@@ -34,11 +34,13 @@ while is_race_on:
     for turtle in turtles:
         print(turtle.pos()[0])
         turtle.forward(randint(0, 10))
-        if turtle.pos()[0] >= 220:
-            print(f"La tortuga {turtle.color()[0]} gana.")
+        if turtle.xcor() >= 220:
+            winning_color = turtle.pencolor()
+            if winning_color == user_bet:
+                print(f"La tortuga {user_bet} gana.")
+            else:
+                print(f"La tortuga {user_bet} pierde.")
             is_race_on = False
             break
-
-
 
 screen.exitonclick()
